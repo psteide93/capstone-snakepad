@@ -1,0 +1,33 @@
+.snake-card {
+  background-color: white;
+  padding: 1rem;
+  box-shadow: 0 2px 5px 0 hsla(181, 63%, 39%, 0.2);
+  border-radius: 0.25rem;
+  max-width: 450px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.snake-card:hover {
+  box-shadow: 0 2px 5px 0 hsla(36, 95%, 59%, 0.2);
+}
+
+.snake-card > img {
+  width: 150px;
+  border-radius: 75px;
+  border: 2px solid var(--dark-orange);
+}
+
+.snake-card span {
+  font-weight: bold;
+  text-transform: uppercase;
+  color: var(--dark-teal);
+}
+.snake-card .card-text {
+  width: 275px;
+}
+
+.card-text p {
+  margin-bottom: 5px;
+  line-height: 1.2em;
+}
