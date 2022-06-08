@@ -9,8 +9,13 @@ import { SnakeService } from 'src/assets/ultilities/services/snake.service';
 })
 export class AppComponent {
   title = 'ColubridTracker';
+  snakes: Snake[] = [];
 
   constructor(private snakeService: SnakeService) {}
 
-  snakes: Snake[] = this.snakeService.snakes;
+  ngOnInit() {
+    this.snakeService
+      .fetchSnakes()
+      .subscribe((snakes) => (this.snakes = snakes));
+  }
 }
