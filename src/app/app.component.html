@@ -3,10 +3,8 @@
 </header>
 <main>
   <ul>
-    <app-snake-card></app-snake-card>
-    <app-snake-card></app-snake-card>
-    <app-snake-card></app-snake-card>
-    <app-snake-card></app-snake-card>
-    <app-snake-card></app-snake-card>
+    <li *ngFor="let snake of snakes">
+      <app-snake-card [snake]="snake"></app-snake-card>
+    </li>
   </ul>
 </main>
