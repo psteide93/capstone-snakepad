@@ -16,6 +16,6 @@ export class AppComponent {
   ngOnInit() {
     this.snakeService
       .fetchSnakes()
-      .subscribe((snakes) => (this.snakes = snakes));
+      .subscribe((response) => (this.snakes = response.snakes));
   }
 }
