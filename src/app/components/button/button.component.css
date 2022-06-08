@@ -1,0 +1,16 @@
+button {
+  font-weight: 600;
+  background-color: var(--brite-teal);
+  font-size: 16px;
+  display: flex;
+  padding: 16px;
+  align-content: flex-end;
+  color: var(--brite-orange);
+  border: none;
+  border-radius: 8px;
+  margin-bottom: 32px;
+}
+
+button:hover {
+  background-color: var(--dull-teal);
+}

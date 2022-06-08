@@ -4,7 +4,7 @@
     <p><span>Name:</span> {{ snake.name }}</p>
     <p><span>ID:</span> {{ snake.breederId }}</p>
     <p><span>Gender:</span> {{ snake.gender }}</p>
-    <p><span>Last Meal:</span> {{ snake.lastMeal }}</p>
-    <p><span>Last Note:</span> {{ snake.lastNote }}</p>
+    <p *ngIf="snake.lastMeal"><span>Last Meal:</span> {{ snake.lastMeal }}</p>
+    <p *ngIf="snake.lastNote"><span>Last Note:</span> {{ snake.lastNote }}</p>
   </div>
 </div>

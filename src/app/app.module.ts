@@ -5,9 +5,11 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { SnakeCardComponent } from './components/snake-card/snake-card.component';
+import { AddSnakeFormComponent } from './components/add-snake-form/add-snake-form.component';
+import { ButtonComponent } from './components/button/button.component';
 
 @NgModule({
-  declarations: [AppComponent, SnakeCardComponent],
+  declarations: [AppComponent, SnakeCardComponent, AddSnakeFormComponent, ButtonComponent],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule],
   providers: [],
   bootstrap: [AppComponent],

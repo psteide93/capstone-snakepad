@@ -1,10 +1,14 @@
 <header>
   <h1>SnakePad</h1>
 </header>
-<main>
-  <ul>
-    <li *ngFor="let snake of snakes">
-      <app-snake-card [snake]="snake"></app-snake-card>
-    </li>
-  </ul>
-</main>
+<div class="container">
+  <main>
+    <ul>
+      <li *ngFor="let snake of snakes">
+        <app-snake-card [snake]="snake"></app-snake-card>
+      </li>
+    </ul>
+  </main>
+  <app-button></app-button>
+  <app-add-snake-form></app-add-snake-form>
+</div>

@@ -19,3 +19,9 @@ main ul {
   grid-template-columns: 1fr 1fr;
   gap: 32px;
 }
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
