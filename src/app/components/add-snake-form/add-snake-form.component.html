@@ -1,20 +1,25 @@
-<form>
+<form (ngSubmit)="onSubmit()">
   <div>
     <label for="name">Name:</label>
-    <input type="text" name="name" id="name" />
+    <input type="text" name="name" [(ngModel)]="name" id="name" />
   </div>
   <div>
-    <label for="breederId">Image Url:</label>
-    <input type="text" name="name" id="name" />
+    <label for="imgUrl">Image Url:</label>
+    <input type="text" name="imgUrl" [(ngModel)]="imgUrl" id="imgUrl" />
   </div>
   <div>
-    <label for="imgUrl">Id:</label>
-    <input type="text" name="imgUrl" id="imgUrl" />
+    <label for="breederId">Id:</label>
+    <input
+      type="text"
+      name="breederId"
+      [(ngModel)]="breederId"
+      id="breederId"
+    />
   </div>
   <div>
     <label for="gender">Gender:</label>
     <div class="custom-select">
-      <select name="gender" id="gender">
+      <select name="gender" [(ngModel)]="gender" id="gender">
         <option value="male">Male</option>
         <option value="female">Female</option>
         <option value="unknown">Unknown</option>
