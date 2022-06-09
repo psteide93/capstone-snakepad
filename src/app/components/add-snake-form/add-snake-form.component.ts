@@ -13,7 +13,7 @@ export class AddSnakeFormComponent implements OnInit {
   name!: string;
   imgUrl!: string;
   breederId!: string;
-  gender: 'Male' | 'Female' | 'unknown' = 'unknown';
+  gender: 'Male' | 'Female' | 'Unknown' = 'Unknown';
   showAddSnake: boolean = false;
   subscription!: Subscription;
 
@@ -43,6 +43,6 @@ export class AddSnakeFormComponent implements OnInit {
     this.name = '';
     this.breederId = '';
     this.imgUrl = '';
-    this.gender = 'unknown';
+    this.gender = 'Unknown';
   }
 }
