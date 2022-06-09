@@ -2,7 +2,7 @@ export type Snake = {
   name: string;
   breederId: string;
   imgUrl: string;
-  gender: 'Male' | 'Female' | 'unkown';
-  lastMeal: string;
-  lastNote: string;
+  gender: 'Male' | 'Female' | 'unknown';
+  lastMeal?: string;
+  lastNote?: string;
 };

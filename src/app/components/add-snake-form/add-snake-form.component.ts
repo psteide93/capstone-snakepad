@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Snake } from 'src/assets/ultilities/models/snake.model';
+import { UiService } from 'src/assets/ultilities/services/ui.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-add-snake-form',
@@ -6,12 +9,19 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./add-snake-form.component.css'],
 })
 export class AddSnakeFormComponent implements OnInit {
+  @Output() onAddSnake: EventEmitter<Snake> = new EventEmitter();
   name!: string;
   imgUrl!: string;
   breederId!: string;
-  gender: string = 'unknown';
+  gender: 'Male' | 'Female' | 'unknown' = 'unknown';
+  showAddSnake: boolean = false;
+  subscription!: Subscription;
 
-  constructor() {}
+  constructor(private uiService: UiService) {
+    this.subscription = this.uiService
+      .onToggle()
+      .subscribe((value) => (this.showAddSnake = value));
+  }
 
   ngOnInit(): void {}
 
@@ -27,5 +37,12 @@ export class AddSnakeFormComponent implements OnInit {
       breederId: this.breederId,
       gender: this.gender,
     };
+
+    this.onAddSnake.emit(newSnake);
+
+    this.name = '';
+    this.breederId = '';
+    this.imgUrl = '';
+    this.gender = 'unknown';
   }
 }

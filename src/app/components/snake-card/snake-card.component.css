@@ -3,7 +3,7 @@
   padding: 1rem;
   box-shadow: 0 2px 5px 0 hsla(181, 63%, 39%, 0.2);
   border-radius: 0.25rem;
-  max-width: 450px;
+  width: 450px;
   display: flex;
   justify-content: space-between;
 }

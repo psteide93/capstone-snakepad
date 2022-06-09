@@ -9,6 +9,9 @@
       </li>
     </ul>
   </main>
-  <app-button></app-button>
-  <app-add-snake-form></app-add-snake-form>
+  <app-button
+    (buttonClick)="toggleAddSnake()"
+    text="{{ showAddSnake ? 'Close' : 'Add Snake' }}"
+  ></app-button>
+  <app-add-snake-form (onAddSnake)="addSnake($event)"></app-add-snake-form>
 </div>
