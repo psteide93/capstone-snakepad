@@ -1,11 +1,9 @@
 button {
   font-weight: 600;
-  background-color: var(--brite-teal);
+  background-color: var(--grey);
   font-size: 16px;
-  display: flex;
   padding: 16px;
-  align-content: flex-end;
-  color: var(--brite-orange);
+  color: black;
   border: none;
   border-radius: 8px;
   margin-bottom: 32px;

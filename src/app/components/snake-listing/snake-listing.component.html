@@ -2,7 +2,9 @@
   <div>
     <ul>
       <li *ngFor="let snake of snakes">
-        <app-snake-card [snake]="snake"></app-snake-card>
+        <a routerLink="/">
+          <app-snake-card [snake]="snake"></app-snake-card>
+        </a>
       </li>
     </ul>
   </div>

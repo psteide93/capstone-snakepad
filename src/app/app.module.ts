@@ -11,6 +11,7 @@ import { AddSnakeFormComponent } from './components/add-snake-form/add-snake-for
 import { ButtonComponent } from './components/button/button.component';
 import { AuthButtonComponent } from './components/auth-button/auth-button.component';
 import { SnakeListingComponent } from './components/snake-listing/snake-listing.component';
+import { HeaderComponent } from './components/header/header.component';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import { SnakeListingComponent } from './components/snake-listing/snake-listing.
     ButtonComponent,
     AuthButtonComponent,
     SnakeListingComponent,
+    HeaderComponent,
   ],
   imports: [
     BrowserModule,

@@ -22,6 +22,7 @@ export class SnakeService {
   constructor(private http: HttpClient, public auth: AuthService) {}
 
   fetchSnakes(): Observable<Snake[]> {
+    const user = this.auth.user$.subscribe((profile) => profile!.email);
     return this.http
       .get<SnakeResponse>('http://localhost:8081/api/snakes')
       .pipe(

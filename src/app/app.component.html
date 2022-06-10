@@ -1,7 +1,4 @@
-<header>
-  <h1>SnakePad</h1>
-  <app-auth-button></app-auth-button>
-</header>
+<app-header></app-header>
 <main>
-  <app-snake-listing></app-snake-listing>
+  <app-snake-listing *ngIf="auth.isAuthenticated$ | async"></app-snake-listing>
 </main>
