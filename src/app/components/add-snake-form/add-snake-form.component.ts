@@ -2,6 +2,7 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { Snake } from 'src/assets/ultilities/models/snake.model';
 import { UiService } from 'src/assets/ultilities/services/ui.service';
 import { Subscription } from 'rxjs';
+import { AuthService } from '@auth0/auth0-angular';
 
 @Component({
   selector: 'app-add-snake-form',
@@ -10,20 +11,26 @@ import { Subscription } from 'rxjs';
 })
 export class AddSnakeFormComponent implements OnInit {
   @Output() onAddSnake: EventEmitter<Snake> = new EventEmitter();
+  owner!: string;
   name!: string;
   imgUrl!: string;
   breederId!: string;
   gender: 'Male' | 'Female' | 'Unknown' = 'Unknown';
   showAddSnake: boolean = false;
   subscription!: Subscription;
+  profileJson: string = '';
 
-  constructor(private uiService: UiService) {
+  eMail?: string = '';
+
+  constructor(public auth: AuthService, private uiService: UiService) {
     this.subscription = this.uiService
       .onToggle()
       .subscribe((value) => (this.showAddSnake = value));
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.auth.user$.subscribe((profile) => (this.eMail = profile!.email));
+  }
 
   onSubmit() {
     if (!this.name) {
@@ -32,6 +39,7 @@ export class AddSnakeFormComponent implements OnInit {
     }
 
     const newSnake = {
+      owner: this.eMail,
       name: this.name,
       imgUrl: this.imgUrl,
       breederId: this.breederId,

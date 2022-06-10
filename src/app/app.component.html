@@ -1,5 +1,6 @@
 <header>
   <h1>SnakePad</h1>
+  <app-auth-button></app-auth-button>
 </header>
 <div class="container">
   <main>
@@ -10,6 +11,7 @@
     </ul>
   </main>
   <app-button
+    *ngIf="auth.isAuthenticated$ | async"
     (buttonClick)="toggleAddSnake()"
     text="{{ showAddSnake ? 'Close' : 'Add Snake' }}"
   ></app-button>
