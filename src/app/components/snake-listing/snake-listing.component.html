@@ -1,0 +1,14 @@
+<div class="container">
+  <div>
+    <ul>
+      <li *ngFor="let snake of snakes">
+        <app-snake-card [snake]="snake"></app-snake-card>
+      </li>
+    </ul>
+  </div>
+  <app-button
+    (buttonClick)="toggleAddSnake()"
+    text="{{ showAddSnake ? 'Close' : 'Add Snake' }}"
+  ></app-button>
+  <app-add-snake-form (onAddSnake)="addSnake($event)"></app-add-snake-form>
+</div>
