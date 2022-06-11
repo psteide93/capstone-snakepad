@@ -1,0 +1,9 @@
+p {
+  font-size: 64px;
+  font-weight: bold;
+  color: var(--dull-orange);
+}
+
+p + p {
+  margin-bottom: 36px;
+}

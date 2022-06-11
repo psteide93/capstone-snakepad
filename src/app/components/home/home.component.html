@@ -1,1 +1,9 @@
-<app-snake-listing *ngIf="auth.isAuthenticated$ | async"></app-snake-listing>
+<ng-container *ngIf="auth.isAuthenticated$ | async; else loggedOut">
+  <app-snake-listing></app-snake-listing>
+</ng-container>
+
+<ng-template #loggedOut>
+  <p>Hello, user</p>
+  <p>LogIn to get started</p>
+  <app-auth-button></app-auth-button>
+</ng-template>
