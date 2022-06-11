@@ -12,6 +12,7 @@ import { ButtonComponent } from './components/button/button.component';
 import { AuthButtonComponent } from './components/auth-button/auth-button.component';
 import { SnakeListingComponent } from './components/snake-listing/snake-listing.component';
 import { HeaderComponent } from './components/header/header.component';
+import { HomeComponent } from './components/home/home.component';
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import { HeaderComponent } from './components/header/header.component';
     AuthButtonComponent,
     SnakeListingComponent,
     HeaderComponent,
+    HomeComponent,
   ],
   imports: [
     BrowserModule,
