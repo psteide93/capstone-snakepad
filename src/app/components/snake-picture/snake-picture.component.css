@@ -1,0 +1,5 @@
+img {
+  width: 150px;
+  border-radius: 75px;
+  border: 2px solid var(--dark-orange);
+}
