@@ -7,6 +7,7 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class SnakePictureComponent implements OnInit {
   @Input() imgUrl!: string;
+  @Input() size!: number;
 
   constructor() {}
 

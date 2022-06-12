@@ -1,38 +1,3 @@
-.snake-page-header {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-}
-
-.snake-page-header img {
-  width: 250px;
-  border-radius: 125px;
-  border: 2px solid var(--dark-orange);
-}
-
-.snake-page-header span {
-  font-weight: bold;
-  text-transform: uppercase;
-  color: var(--dark-teal);
-}
-
-.snake-page-header p {
-  margin-bottom: 2.5px;
-  line-height: 1.2em;
-  font-size: 20px;
-}
-
-.table-container {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-}
-
-h2 {
-  font-size: 24px;
-  color: var(--dark-orange);
-  font-weight: bold;
-}
-
 .content-table {
   margin: 25px 0;
   font-size: 0.9em;

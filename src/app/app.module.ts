@@ -15,6 +15,7 @@ import { HeaderComponent } from './components/header/header.component';
 import { HomeComponent } from './components/home/home.component';
 import { SnakePictureComponent } from './components/snake-picture/snake-picture.component';
 import { SnakePageComponent } from './components/snake-page/snake-page.component';
+import { TableComponent } from './components/table/table.component';
 
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import { SnakePageComponent } from './components/snake-page/snake-page.component
     HomeComponent,
     SnakePictureComponent,
     SnakePageComponent,
+    TableComponent,
   ],
   imports: [
     BrowserModule,
