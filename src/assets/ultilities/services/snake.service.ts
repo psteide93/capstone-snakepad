@@ -39,4 +39,10 @@ export class SnakeService {
       httpOptions
     );
   }
+
+  getSnakeById(id: number): Observable<Snake | undefined> {
+    return this.fetchSnakes().pipe(
+      map((snake) => snake.find((snake) => snake.id === id))
+    );
+  }
 }
