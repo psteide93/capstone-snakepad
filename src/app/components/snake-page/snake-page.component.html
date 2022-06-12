@@ -40,7 +40,7 @@
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let shed of snake.sheds">
+          <tr *ngFor="let shed of sheds">
             <td>{{ shed.date }}</td>
             <td>{{ shed.observation }}</td>
           </tr>
@@ -57,7 +57,7 @@
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let weight of snake.weights">
+          <tr *ngFor="let weight of weights">
             <td>{{ weight.date }}</td>
             <td>{{ weight.weight }}</td>
           </tr>
@@ -74,7 +74,7 @@
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let note of snake.notes">
+          <tr *ngFor="let note of notes">
             <td>{{ note.date }}</td>
             <td>{{ note.note }}</td>
           </tr>
