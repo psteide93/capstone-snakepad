@@ -2,7 +2,7 @@
   <div>
     <ul>
       <li *ngFor="let snake of snakes">
-        <a routerLink="/">
+        <a routerLink="/snakes/{{ snake.id }}">
           <app-snake-card [snake]="snake"></app-snake-card>
         </a>
       </li>

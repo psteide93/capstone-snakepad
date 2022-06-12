@@ -1,4 +1,5 @@
 export type Snake = {
+  id: number | undefined;
   owner: string | undefined;
   name: string;
   breederId: string;
