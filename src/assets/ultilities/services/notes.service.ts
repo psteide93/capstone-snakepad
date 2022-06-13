@@ -1,11 +1,21 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, map } from 'rxjs';
 import { Note } from '../models/note.model';
 
 type Response = {
   notes: Note[];
   snakeLink: number;
+};
+
+type SingleResponse = {
+  note: Note;
+};
+
+const httpOptions = {
+  headers: new HttpHeaders({
+    'Content-Type': 'application/json',
+  }),
 };
 
 @Injectable({
@@ -24,5 +34,13 @@ export class NotesService {
 
   getLastNote(id: number): Observable<Note> {
     return this.getNotes(id).pipe(map((notes) => notes[notes.length - 1]));
+  }
+
+  addNote(note: Note): Observable<SingleResponse> {
+    return this.http.post<SingleResponse>(
+      'http://localhost:8081/api/notes',
+      note,
+      httpOptions
+    );
   }
 }

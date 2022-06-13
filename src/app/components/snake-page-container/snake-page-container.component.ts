@@ -90,16 +90,18 @@ export class SnakePageContainerComponent implements OnInit {
   }
 
   getLastMeal() {
-    this.feedingService
-      .getLastMeal(this.id)
-      .subscribe((meal) => (this.lastMeal = meal.date));
+    this.feedingService.getLastMeal(this.id).subscribe((meal) => {
+      if (meal) {
+        this.lastMeal = meal.date;
+      }
+    });
   }
 
   getMealSize() {
     this.weightService.getLastWeight(this.id).subscribe((response) => {
       if (response.weight <= 15) {
         this.mealSize = 'Pinky';
-        this.nextMeal = 'Every 7 days';
+        this.nextMeal = 'Every 4 days';
       } else if (response.weight > 16 && response.weight <= 30) {
         this.mealSize = 'Small Fuzzy';
         this.nextMeal = 'Every 7 days';
@@ -132,6 +134,20 @@ export class SnakePageContainerComponent implements OnInit {
   addShed(shed: Shed) {
     this.shedService.addShed(shed).subscribe((response) => {
       this.sheds = [...this.sheds, response.shed];
+    });
+  }
+
+  addWeight(weight: Weight) {
+    this.weightService.addWeight(weight).subscribe((response) => {
+      this.weights = [...this.weights, response.weight];
+    });
+    this.mealSize = this.weightService.getMealSizeByWeight(weight.weight);
+    this.nextMeal = this.weightService.getMealFequencyByWeight(weight.weight);
+  }
+
+  addNote(note: Note) {
+    this.noteService.addNote(note).subscribe((response) => {
+      this.notes = [...this.notes, response.note];
     });
   }
 }

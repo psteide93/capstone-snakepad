@@ -1,5 +1,5 @@
 export type Weight = {
-  id: number;
+  id?: number;
   date: string;
   weight: number;
   snakeLink: number;

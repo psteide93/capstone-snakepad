@@ -4,6 +4,8 @@ import { Subscription } from 'rxjs';
 import { Feeding } from 'src/assets/ultilities/models/feeding.model';
 import { FeedingService } from 'src/assets/ultilities/services/feeding.service';
 import { Shed } from 'src/assets/ultilities/models/shed.model';
+import { Weight } from 'src/assets/ultilities/models/weight.model';
+import { Note } from 'src/assets/ultilities/models/note.model';
 
 @Component({
   selector: 'app-record',
@@ -13,6 +15,8 @@ import { Shed } from 'src/assets/ultilities/models/shed.model';
 export class RecordComponent implements OnInit {
   @Output() onAddFeeding: EventEmitter<Feeding> = new EventEmitter();
   @Output() onAddShed: EventEmitter<Shed> = new EventEmitter();
+  @Output() onAddWeight: EventEmitter<Weight> = new EventEmitter();
+  @Output() onAddNote: EventEmitter<Note> = new EventEmitter();
 
   showAddRecord: boolean = false;
   subscription!: Subscription;
@@ -43,5 +47,13 @@ export class RecordComponent implements OnInit {
 
   addShed(shed: Shed) {
     this.onAddShed.emit(shed);
+  }
+
+  addWeight(weight: Weight) {
+    this.onAddWeight.emit(weight);
+  }
+
+  addNote(note: Note) {
+    this.onAddNote.emit(note);
   }
 }

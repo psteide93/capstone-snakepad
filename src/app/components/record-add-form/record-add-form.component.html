@@ -42,26 +42,34 @@
   <button type="submit">Submit</button>
 </form>
 
-<form *ngIf="showAddRecord && record === 'weight'">
+<form
+  *ngIf="showAddRecord && record === 'weight'"
+  (ngSubmit)="onSubmitWeight()"
+>
   <div>
-    <label for="date">Date:</label>
-    <input type="date" name="date" id="date" />
+    <label for="weightDate">Date:</label>
+    <input
+      type="date"
+      name="weightDate"
+      id="weightDate"
+      [(ngModel)]="weightDate"
+    />
   </div>
   <div>
     <label for="weight">Weight(in grams):</label>
-    <input type="number" name="weight" id="weight" />
+    <input type="number" name="weight" id="weight" [(ngModel)]="weight" />
   </div>
   <button type="submit">Submit</button>
 </form>
 
-<form *ngIf="showAddRecord && record === 'note'">
+<form *ngIf="showAddRecord && record === 'note'" (ngSubmit)="onSubmitNote()">
   <div>
-    <label for="date">Date:</label>
-    <input type="date" name="date" id="date" />
+    <label for="noteDate">Date:</label>
+    <input type="date" name="noteDate" id="noteDate" [(ngModel)]="noteDate" />
   </div>
   <div>
     <label for="notes">Note:</label>
-    <textarea name="note" id="note"></textarea>
+    <textarea name="note" id="note" [(ngModel)]="note" name="note"></textarea>
   </div>
   <button type="submit">Submit</button>
 </form>

@@ -5,6 +5,8 @@ import { ActivatedRoute } from '@angular/router';
 import { FeedingService } from 'src/assets/ultilities/services/feeding.service';
 import { Feeding } from 'src/assets/ultilities/models/feeding.model';
 import { Shed } from 'src/assets/ultilities/models/shed.model';
+import { Weight } from 'src/assets/ultilities/models/weight.model';
+import { Note } from 'src/assets/ultilities/models/note.model';
 
 @Component({
   selector: 'app-record-add-form',
@@ -15,12 +17,19 @@ export class RecordAddFormComponent implements OnInit {
   @Input() record: string = '';
   @Output() onAddFeeding: EventEmitter<Feeding> = new EventEmitter();
   @Output() onAddShed: EventEmitter<Shed> = new EventEmitter();
+  @Output() onAddWeight: EventEmitter<Weight> = new EventEmitter();
+  @Output() onAddNote: EventEmitter<Note> = new EventEmitter();
+
   showAddRecord = false;
   subscription: Subscription;
   feedingDate: string = '';
+  weightDate: string = '';
   shedDate: string = '';
+  noteDate: string = '';
   foodItem: string = '';
   observation: string = '';
+  weight: number = 0;
+  note: string = '';
   snakeLink = Number(this.route.snapshot.paramMap.get('id'));
 
   constructor(private uiService: UiService, private route: ActivatedRoute) {
@@ -54,6 +63,30 @@ export class RecordAddFormComponent implements OnInit {
 
     this.shedDate = '';
     this.observation = '';
+  }
+
+  onSubmitWeight() {
+    const newWeight: Weight = {
+      date: this.dateConverter(this.weightDate),
+      weight: this.weight,
+      snakeLink: this.snakeLink,
+    };
+    this.onAddWeight.emit(newWeight);
+
+    this.weightDate = '';
+    this.weight = 0;
+  }
+
+  onSubmitNote() {
+    const newNote: Note = {
+      date: this.dateConverter(this.noteDate),
+      note: this.note,
+      snakeLink: this.snakeLink,
+    };
+    this.onAddNote.emit(newNote);
+
+    this.noteDate = '';
+    this.note = '';
   }
 
   dateConverter(date: string) {
