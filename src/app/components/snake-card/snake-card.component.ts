@@ -60,7 +60,7 @@ export class SnakeCardComponent implements OnInit {
       } else if (response && response.weight > 171 && response.weight <= 400) {
         this.mealSize = 'Adult';
         this.nextMeal = 'Every 10 days';
-      } else {
+      } else if (response) {
         this.mealSize = 'Jumbo';
         this.nextMeal = 'Every 2 weeks';
       }
