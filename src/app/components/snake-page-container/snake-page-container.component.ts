@@ -73,7 +73,7 @@ export class SnakePageContainerComponent implements OnInit {
 
   getSheds() {
     this.shedService
-      .getFeedings(this.id)
+      .getSheds(this.id)
       .subscribe((sheds) => (this.sheds = sheds));
   }
 
@@ -126,6 +126,13 @@ export class SnakePageContainerComponent implements OnInit {
     this.feedingService.addFeeding(feeding).subscribe((response) => {
       this.feedings = [...this.feedings, response.feeding];
       this.lastMeal = response.feeding.date;
+    });
+  }
+
+  addShed(shed: Shed) {
+    this.shedService.addShed(shed).subscribe((response) => {
+      console.log(response);
+      this.sheds = [...this.sheds, response.shed];
     });
   }
 }

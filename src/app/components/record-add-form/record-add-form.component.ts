@@ -4,6 +4,7 @@ import { UiService } from 'src/assets/ultilities/services/ui.service';
 import { ActivatedRoute } from '@angular/router';
 import { FeedingService } from 'src/assets/ultilities/services/feeding.service';
 import { Feeding } from 'src/assets/ultilities/models/feeding.model';
+import { Shed } from 'src/assets/ultilities/models/shed.model';
 
 @Component({
   selector: 'app-record-add-form',
@@ -13,17 +14,16 @@ import { Feeding } from 'src/assets/ultilities/models/feeding.model';
 export class RecordAddFormComponent implements OnInit {
   @Input() record: string = '';
   @Output() onAddFeeding: EventEmitter<Feeding> = new EventEmitter();
+  @Output() onAddShed: EventEmitter<Shed> = new EventEmitter();
   showAddRecord = false;
   subscription: Subscription;
-  date: string = '';
+  feedingDate: string = '';
+  shedDate: string = '';
   foodItem: string = '';
+  observation: string = '';
   snakeLink = Number(this.route.snapshot.paramMap.get('id'));
 
-  constructor(
-    private uiService: UiService,
-    private route: ActivatedRoute,
-    feedingService: FeedingService
-  ) {
+  constructor(private uiService: UiService, private route: ActivatedRoute) {
     this.subscription = this.uiService
       .onToggle()
       .subscribe((value) => (this.showAddRecord = value));
@@ -33,15 +33,28 @@ export class RecordAddFormComponent implements OnInit {
 
   onSubmitFeeding() {
     const newFeeding: Feeding = {
-      date: this.dateConverter(this.date),
+      date: this.dateConverter(this.feedingDate),
       item: this.foodItem,
       snakeLink: this.snakeLink,
     };
 
     this.onAddFeeding.emit(newFeeding);
 
-    this.date = '';
+    this.feedingDate = '';
     this.foodItem = '';
+  }
+
+  onSubmitShed() {
+    const newShed: Shed = {
+      date: this.dateConverter(this.shedDate),
+      observation: this.observation,
+      snakeLink: this.snakeLink,
+    };
+    console.log(newShed);
+    this.onAddShed.emit(newShed);
+
+    this.shedDate = '';
+    this.observation = '';
   }
 
   dateConverter(date: string) {

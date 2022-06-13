@@ -1,4 +1,7 @@
-<app-record (onAddFeeding)="addFeeding($event)"></app-record>
+<app-record
+  (onAddFeeding)="addFeeding($event)"
+  (onAddShed)="addShed($event)"
+></app-record>
 <app-snake-page
   [snake]="snake"
   [feedings]="feedings"

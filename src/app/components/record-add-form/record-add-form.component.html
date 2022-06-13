@@ -3,8 +3,13 @@
   (ngSubmit)="onSubmitFeeding()"
 >
   <div>
-    <label for="date">Date</label>
-    <input type="date" id="date" [(ngModel)]="date" name="date" />
+    <label for="feedingDate">Date</label>
+    <input
+      type="date"
+      id="feedingDate"
+      [(ngModel)]="feedingDate"
+      name="feedingDate"
+    />
   </div>
   <div>
     <label for="food">Food-Item:</label>
@@ -24,12 +29,12 @@
   <button type="submit">Submit</button>
 </form>
 
-<form *ngIf="showAddRecord && record === 'shed'">
-  <label for="date">Date</label>
-  <input type="date" id="date" />
+<form *ngIf="showAddRecord && record === 'shed'" (ngSubmit)="onSubmitShed()">
+  <label for="shedDate">Date</label>
+  <input type="date" id="shedDate" [(ngModel)]="shedDate" name="shedDate" />
   <label for="observation">Observation:</label>
   <div class="custom-select">
-    <select name="observation" id="observation">
+    <select name="observation" id="observation" [(ngModel)]="observation">
       <option value="Noticed">Noticed</option>
       <option value="Shed">Shed</option>
     </select>

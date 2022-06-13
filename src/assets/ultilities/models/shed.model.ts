@@ -1,5 +1,5 @@
 export type Shed = {
-  id: number;
+  id?: number;
   date: string;
   observation: string;
   snakeLink: number;
