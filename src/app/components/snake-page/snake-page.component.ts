@@ -23,7 +23,7 @@ export class SnakePageComponent implements OnInit {
   @Input() sheds: Shed[] = [];
   @Input() weights: Weight[] = [];
   @Input() lastWeight?: Weight;
-  @Input() lastMeal?: Feeding;
+  @Input() lastMeal?: string;
   @Input() nextMeal?: string;
   @Input() mealSize: string = '';
 

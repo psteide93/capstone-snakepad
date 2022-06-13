@@ -1,2 +1,12 @@
 <app-record (onAddFeeding)="addFeeding($event)"></app-record>
-<app-snake-page [snake]="snake"></app-snake-page>
+<app-snake-page
+  [snake]="snake"
+  [feedings]="feedings"
+  [sheds]="sheds"
+  [notes]="notes"
+  [weights]="weights"
+  [lastWeight]="lastWeight"
+  [lastMeal]="lastMeal"
+  [nextMeal]="nextMeal"
+  [mealSize]="mealSize"
+></app-snake-page>

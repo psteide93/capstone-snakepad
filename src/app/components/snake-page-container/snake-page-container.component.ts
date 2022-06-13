@@ -25,7 +25,7 @@ export class SnakePageContainerComponent implements OnInit {
   sheds: Shed[] = [];
   weights: Weight[] = [];
   lastWeight?: Weight;
-  lastMeal?: Feeding;
+  lastMeal?: string;
   nextMeal?: string;
   mealSize: string = '';
 
@@ -65,12 +65,6 @@ export class SnakePageContainerComponent implements OnInit {
       .subscribe((feedings) => (this.feedings = feedings));
   }
 
-  getNewFeeding() {
-    if (this.feedingService.newFeeding) {
-      this.feedings = [...this.feedings, this.feedingService.newFeeding];
-    }
-  }
-
   getNotes() {
     this.noteService
       .getNotes(this.id)
@@ -98,7 +92,7 @@ export class SnakePageContainerComponent implements OnInit {
   getLastMeal() {
     this.feedingService
       .getLastMeal(this.id)
-      .subscribe((meal) => (this.lastMeal = meal));
+      .subscribe((meal) => (this.lastMeal = meal.date));
   }
 
   getMealSize() {
@@ -129,6 +123,9 @@ export class SnakePageContainerComponent implements OnInit {
   }
 
   addFeeding(feeding: Feeding) {
-    console.log('ladies and gentleman we got em');
+    this.feedingService.addFeeding(feeding).subscribe((response) => {
+      this.feedings = [...this.feedings, response.feeding];
+      this.lastMeal = response.feeding.date;
+    });
   }
 }

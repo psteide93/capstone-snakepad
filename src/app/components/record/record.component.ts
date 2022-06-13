@@ -36,9 +36,9 @@ export class RecordComponent implements OnInit {
   }
 
   addFeeding(feeding: Feeding) {
-    this.feedingService
-      .addFeeding(feeding)
-      .subscribe((feeding) => (this.feedingService.newFeeding = feeding));
+    // this.feedingService
+    //   .addFeeding(feeding)
+    //   .subscribe((feeding) => (this.feedingService.newFeeding = feeding));
     this.onAddFeeding.emit(feeding);
   }
 }

@@ -7,6 +7,10 @@ type Response = {
   feedings: Feeding[];
 };
 
+type SingleResponse = {
+  feeding: Feeding;
+};
+
 const httpOptions = {
   headers: new HttpHeaders({
     'Content-Type': 'application/json',
@@ -37,8 +41,8 @@ export class FeedingService {
     );
   }
 
-  addFeeding(feeding: Feeding): Observable<Feeding> {
-    return this.http.post<Feeding>(
+  addFeeding(feeding: Feeding): Observable<SingleResponse> {
+    return this.http.post<SingleResponse>(
       'http://localhost:8081/api/feedings',
       feeding,
       httpOptions
