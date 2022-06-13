@@ -50,7 +50,6 @@ export class RecordAddFormComponent implements OnInit {
       observation: this.observation,
       snakeLink: this.snakeLink,
     };
-    console.log(newShed);
     this.onAddShed.emit(newShed);
 
     this.shedDate = '';

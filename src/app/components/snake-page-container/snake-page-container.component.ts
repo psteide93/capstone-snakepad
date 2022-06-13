@@ -131,7 +131,6 @@ export class SnakePageContainerComponent implements OnInit {
 
   addShed(shed: Shed) {
     this.shedService.addShed(shed).subscribe((response) => {
-      console.log(response);
       this.sheds = [...this.sheds, response.shed];
     });
   }

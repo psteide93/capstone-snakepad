@@ -42,7 +42,6 @@ export class RecordComponent implements OnInit {
   }
 
   addShed(shed: Shed) {
-    console.log(shed);
     this.onAddShed.emit(shed);
   }
 }

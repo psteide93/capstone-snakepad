@@ -36,12 +36,10 @@ export class SnakeListingComponent implements OnInit {
   grabUserData() {
     this.auth.user$.subscribe((profile) => {
       this.profileJson = JSON.stringify(profile, null, 2);
-      console.log(this.profileJson);
     });
   }
 
   addSnake(snake: Snake) {
-    console.log(snake);
     this.snakeService
       .addSnake(snake)
       .subscribe(

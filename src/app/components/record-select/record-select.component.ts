@@ -22,7 +22,6 @@ export class RecordSelectComponent implements OnInit {
   ngOnInit(): void {}
 
   onSubmit() {
-    console.log(this.record);
     this.onAddRecord.emit(this.record);
   }
 }
