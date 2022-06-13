@@ -14,11 +14,15 @@ type Response = {
 export class NotesService {
   constructor(private http: HttpClient) {}
 
-  getFeedings(id: number): Observable<Note[]> {
+  getNotes(id: number): Observable<Note[]> {
     return this.http
       .get<Response>('http://localhost:8081/api/notes')
       .pipe(
         map((response) => response.notes.filter((note) => note.snakeLink == id))
       );
+  }
+
+  getLastNote(id: number): Observable<Note> {
+    return this.getNotes(id).pipe(map((notes) => notes[notes.length - 1]));
   }
 }

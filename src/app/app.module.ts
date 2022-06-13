@@ -16,6 +16,7 @@ import { HomeComponent } from './components/home/home.component';
 import { SnakePictureComponent } from './components/snake-picture/snake-picture.component';
 import { SnakePageComponent } from './components/snake-page/snake-page.component';
 import { TableComponent } from './components/table/table.component';
+import { RecordAddFormComponent } from './components/record-add-form/record-add-form.component';
 
 @NgModule({
   declarations: [
@@ -30,6 +31,7 @@ import { TableComponent } from './components/table/table.component';
     SnakePictureComponent,
     SnakePageComponent,
     TableComponent,
+    RecordAddFormComponent,
   ],
   imports: [
     BrowserModule,

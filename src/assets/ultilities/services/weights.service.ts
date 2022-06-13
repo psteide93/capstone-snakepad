@@ -22,4 +22,10 @@ export class WeightsService {
         )
       );
   }
+
+  getLastWeight(id: number): Observable<Weight> {
+    return this.getWeights(id).pipe(
+      map((weights) => weights[weights.length - 1])
+    );
+  }
 }

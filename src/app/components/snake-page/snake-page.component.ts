@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Snake } from 'src/assets/ultilities/models/snake.model';
 import { ActivatedRoute } from '@angular/router';
 import { SnakeService } from 'src/assets/ultilities/services/snake.service';
@@ -22,6 +22,10 @@ export class SnakePageComponent implements OnInit {
   notes: Note[] = [];
   sheds: Shed[] = [];
   weights: Weight[] = [];
+  lastWeight?: Weight;
+  lastMeal?: Feeding;
+  nextMeal?: string;
+  mealSize: string = '';
 
   constructor(
     private route: ActivatedRoute,
@@ -40,6 +44,9 @@ export class SnakePageComponent implements OnInit {
     this.getNotes();
     this.getSheds();
     this.getWeights();
+    this.getLastWeight();
+    this.getLastMeal();
+    this.getMealSize();
   }
 
   getSnake() {
@@ -56,7 +63,7 @@ export class SnakePageComponent implements OnInit {
 
   getNotes() {
     this.noteService
-      .getFeedings(this.id)
+      .getNotes(this.id)
       .subscribe((notes) => (this.notes = notes));
   }
 
@@ -70,5 +77,44 @@ export class SnakePageComponent implements OnInit {
     this.weightService
       .getWeights(this.id)
       .subscribe((weights) => (this.weights = weights));
+  }
+
+  getLastWeight() {
+    this.weightService
+      .getLastWeight(this.id)
+      .subscribe((weight) => (this.lastWeight = weight));
+  }
+
+  getLastMeal() {
+    this.feedingService
+      .getLastMeal(this.id)
+      .subscribe((meal) => (this.lastMeal = meal));
+  }
+
+  getMealSize() {
+    this.weightService.getLastWeight(this.id).subscribe((response) => {
+      if (response.weight <= 15) {
+        this.mealSize = 'Pinky';
+        this.nextMeal = 'Every 7 days';
+      } else if (response.weight > 16 && response.weight <= 30) {
+        this.mealSize = 'Small Fuzzy';
+        this.nextMeal = 'Every 7 days';
+      } else if (response.weight > 31 && response.weight <= 50) {
+        this.mealSize = 'Regular Fuzzy';
+        this.nextMeal = 'Every 7 days';
+      } else if (response.weight > 51 && response.weight <= 90) {
+        this.mealSize = 'Hopper';
+        this.nextMeal = 'Every 7 days';
+      } else if (response.weight > 91 && response.weight <= 170) {
+        this.mealSize = 'Weaned';
+        this.nextMeal = 'Every 7 days';
+      } else if (response.weight > 171 && response.weight <= 400) {
+        this.mealSize = 'Adult';
+        this.nextMeal = 'Every 10 days';
+      } else {
+        this.mealSize = 'Jumbo';
+        this.nextMeal = 'Every 2 weeks';
+      }
+    });
   }
 }

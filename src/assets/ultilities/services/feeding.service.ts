@@ -22,4 +22,10 @@ export class FeedingService {
         )
       );
   }
+
+  getLastMeal(id: number): Observable<Feeding> {
+    return this.getFeedings(id).pipe(
+      map((feeding) => feeding[feeding.length - 1])
+    );
+  }
 }

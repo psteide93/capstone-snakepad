@@ -4,7 +4,7 @@ import { Shed } from './shed.model';
 import { Weight } from './weight.model';
 
 export type Snake = {
-  id?: number;
+  id: number;
   owner?: string;
   name: string;
   breederId: string;

@@ -3,7 +3,11 @@
     <ul>
       <li *ngFor="let snake of snakes">
         <a routerLink="/snakes/{{ snake.id }}">
-          <app-snake-card [snake]="snake"></app-snake-card>
+          <app-snake-card
+            *ngIf="snake"
+            [snake]="snake"
+            [id]="snake.id"
+          ></app-snake-card>
         </a>
       </li>
     </ul>

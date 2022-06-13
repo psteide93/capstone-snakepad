@@ -39,7 +39,7 @@ export class AddSnakeFormComponent implements OnInit {
     }
 
     const newSnake = {
-      id: undefined,
+      id: 0,
       owner: this.eMail,
       name: this.name,
       imgUrl: this.imgUrl,
