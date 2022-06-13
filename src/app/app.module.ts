@@ -17,6 +17,7 @@ import { SnakePictureComponent } from './components/snake-picture/snake-picture.
 import { SnakePageComponent } from './components/snake-page/snake-page.component';
 import { TableComponent } from './components/table/table.component';
 import { RecordAddFormComponent } from './components/record-add-form/record-add-form.component';
+import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 
 @NgModule({
   declarations: [
@@ -32,6 +33,7 @@ import { RecordAddFormComponent } from './components/record-add-form/record-add-
     SnakePageComponent,
     TableComponent,
     RecordAddFormComponent,
+    NavBarComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,22 @@
+a {
+  text-decoration: none;
+  color: white;
+  font-size: 32px;
+  font-family: "Roboto", sans-serif;
+}
+
+a:hover {
+  color: gray;
+}
+
+nav {
+  width: 300px;
+  position: relative;
+  left: -32px;
+}
+
+ul {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}

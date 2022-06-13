@@ -8,3 +8,7 @@
   --dark-teal: hsl(181, 100%, 19%);
   --grey: hsl(60, 0%, 50%);
 }
+
+* {
+  box-sizing: border-box;
+}
