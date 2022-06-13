@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Snake } from 'src/assets/ultilities/models/snake.model';
 import { ActivatedRoute } from '@angular/router';
 import { SnakeService } from 'src/assets/ultilities/services/snake.service';
@@ -17,104 +17,17 @@ import { Weight } from 'src/assets/ultilities/models/weight.model';
   styleUrls: ['./snake-page.component.css'],
 })
 export class SnakePageComponent implements OnInit {
-  snake!: Snake | undefined;
-  feedings: Feeding[] = [];
-  notes: Note[] = [];
-  sheds: Shed[] = [];
-  weights: Weight[] = [];
-  lastWeight?: Weight;
-  lastMeal?: Feeding;
-  nextMeal?: string;
-  mealSize: string = '';
+  @Input() snake!: Snake;
+  @Input() feedings?: Feeding[];
+  @Input() notes: Note[] = [];
+  @Input() sheds: Shed[] = [];
+  @Input() weights: Weight[] = [];
+  @Input() lastWeight?: Weight;
+  @Input() lastMeal?: Feeding;
+  @Input() nextMeal?: string;
+  @Input() mealSize: string = '';
 
-  constructor(
-    private route: ActivatedRoute,
-    private snakeService: SnakeService,
-    private feedingService: FeedingService,
-    private noteService: NotesService,
-    private shedService: ShedsService,
-    private weightService: WeightsService
-  ) {}
+  constructor() {}
 
-  id = Number(this.route.snapshot.paramMap.get('id'));
-
-  ngOnInit(): void {
-    this.getSnake();
-    this.getFeedings();
-    this.getNotes();
-    this.getSheds();
-    this.getWeights();
-    this.getLastWeight();
-    this.getLastMeal();
-    this.getMealSize();
-  }
-
-  getSnake() {
-    this.snakeService
-      .getSnakeById(this.id)
-      .subscribe((snake) => (this.snake = snake));
-  }
-
-  getFeedings() {
-    this.feedingService
-      .getFeedings(this.id)
-      .subscribe((feedings) => (this.feedings = feedings));
-  }
-
-  getNotes() {
-    this.noteService
-      .getNotes(this.id)
-      .subscribe((notes) => (this.notes = notes));
-  }
-
-  getSheds() {
-    this.shedService
-      .getFeedings(this.id)
-      .subscribe((sheds) => (this.sheds = sheds));
-  }
-
-  getWeights() {
-    this.weightService
-      .getWeights(this.id)
-      .subscribe((weights) => (this.weights = weights));
-  }
-
-  getLastWeight() {
-    this.weightService
-      .getLastWeight(this.id)
-      .subscribe((weight) => (this.lastWeight = weight));
-  }
-
-  getLastMeal() {
-    this.feedingService
-      .getLastMeal(this.id)
-      .subscribe((meal) => (this.lastMeal = meal));
-  }
-
-  getMealSize() {
-    this.weightService.getLastWeight(this.id).subscribe((response) => {
-      if (response.weight <= 15) {
-        this.mealSize = 'Pinky';
-        this.nextMeal = 'Every 7 days';
-      } else if (response.weight > 16 && response.weight <= 30) {
-        this.mealSize = 'Small Fuzzy';
-        this.nextMeal = 'Every 7 days';
-      } else if (response.weight > 31 && response.weight <= 50) {
-        this.mealSize = 'Regular Fuzzy';
-        this.nextMeal = 'Every 7 days';
-      } else if (response.weight > 51 && response.weight <= 90) {
-        this.mealSize = 'Hopper';
-        this.nextMeal = 'Every 7 days';
-      } else if (response.weight > 91 && response.weight <= 170) {
-        this.mealSize = 'Weaned';
-        this.nextMeal = 'Every 7 days';
-      } else if (response.weight > 171 && response.weight <= 400) {
-        this.mealSize = 'Adult';
-        this.nextMeal = 'Every 10 days';
-      } else {
-        this.mealSize = 'Jumbo';
-        this.nextMeal = 'Every 2 weeks';
-      }
-    });
-  }
+  ngOnInit(): void {}
 }

@@ -21,6 +21,7 @@ import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 import { RecordComponent } from './components/record/record.component';
 import { RecordButtonComponent } from './components/record-button/record-button.component';
 import { RecordSelectComponent } from './components/record-select/record-select.component';
+import { SnakePageContainerComponent } from './components/snake-page-container/snake-page-container.component';
 
 @NgModule({
   declarations: [
@@ -40,6 +41,7 @@ import { RecordSelectComponent } from './components/record-select/record-select.
     RecordComponent,
     RecordButtonComponent,
     RecordSelectComponent,
+    SnakePageContainerComponent,
   ],
   imports: [
     BrowserModule,

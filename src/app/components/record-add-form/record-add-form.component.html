@@ -1,12 +1,15 @@
-<form *ngIf="showAddRecord && record === 'feeding'">
+<form
+  *ngIf="showAddRecord && record === 'feeding'"
+  (ngSubmit)="onSubmitFeeding()"
+>
   <div>
     <label for="date">Date</label>
-    <input type="date" id="date" />
+    <input type="date" id="date" [(ngModel)]="date" name="date" />
   </div>
   <div>
     <label for="food">Food-Item:</label>
     <div class="custom-select">
-      <select name="food" id="food">
+      <select name="food" id="food" [(ngModel)]="foodItem">
         <option value="Pinky">Pinky</option>
         <option value="Small Fuzzy">Small Fuzzy</option>
         <option value="Regular Fuzzy">Regular Fuzzy</option>
@@ -21,7 +24,7 @@
   <button type="submit">Submit</button>
 </form>
 
-<form *ngIf="record === 'shed'">
+<form *ngIf="showAddRecord && record === 'shed'">
   <label for="date">Date</label>
   <input type="date" id="date" />
   <label for="observation">Observation:</label>
@@ -34,7 +37,7 @@
   <button type="submit">Submit</button>
 </form>
 
-<form *ngIf="record === 'weight'">
+<form *ngIf="showAddRecord && record === 'weight'">
   <div>
     <label for="date">Date:</label>
     <input type="date" name="date" id="date" />
@@ -46,7 +49,7 @@
   <button type="submit">Submit</button>
 </form>
 
-<form *ngIf="record === 'note'">
+<form *ngIf="showAddRecord && record === 'note'">
   <div>
     <label for="date">Date:</label>
     <input type="date" name="date" id="date" />

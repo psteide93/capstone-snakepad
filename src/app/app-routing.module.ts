@@ -4,6 +4,7 @@ import { HomeComponent } from './components/home/home.component';
 import { AuthGuard } from '@auth0/auth0-angular';
 import { SnakeListingComponent } from './components/snake-listing/snake-listing.component';
 import { SnakePageComponent } from './components/snake-page/snake-page.component';
+import { SnakePageContainerComponent } from './components/snake-page-container/snake-page-container.component';
 
 const routes: Routes = [
   {
@@ -18,7 +19,7 @@ const routes: Routes = [
   },
   {
     path: 'snakes/:id',
-    component: SnakePageComponent,
+    component: SnakePageContainerComponent,
   },
 ];
 
