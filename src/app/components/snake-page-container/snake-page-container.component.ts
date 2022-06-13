@@ -99,25 +99,25 @@ export class SnakePageContainerComponent implements OnInit {
 
   getMealSize() {
     this.weightService.getLastWeight(this.id).subscribe((response) => {
-      if (response.weight <= 15) {
+      if (response && response.weight <= 15) {
         this.mealSize = 'Pinky';
         this.nextMeal = 'Every 4 days';
-      } else if (response.weight > 16 && response.weight <= 30) {
+      } else if (response && response.weight > 16 && response.weight <= 30) {
         this.mealSize = 'Small Fuzzy';
         this.nextMeal = 'Every 7 days';
-      } else if (response.weight > 31 && response.weight <= 50) {
+      } else if (response && response.weight > 31 && response.weight <= 50) {
         this.mealSize = 'Regular Fuzzy';
         this.nextMeal = 'Every 7 days';
-      } else if (response.weight > 51 && response.weight <= 90) {
+      } else if (response && response.weight > 51 && response.weight <= 90) {
         this.mealSize = 'Hopper';
         this.nextMeal = 'Every 7 days';
-      } else if (response.weight > 91 && response.weight <= 170) {
+      } else if (response && response.weight > 91 && response.weight <= 170) {
         this.mealSize = 'Weaned';
         this.nextMeal = 'Every 7 days';
-      } else if (response.weight > 171 && response.weight <= 400) {
+      } else if (response && response.weight > 171 && response.weight <= 400) {
         this.mealSize = 'Adult';
         this.nextMeal = 'Every 10 days';
-      } else {
+      } else if (response) {
         this.mealSize = 'Jumbo';
         this.nextMeal = 'Every 2 weeks';
       }
