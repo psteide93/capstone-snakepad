@@ -1,1 +1,59 @@
-<p>record-add-form works!</p>
+<form *ngIf="record === 'feeding'">
+  <div>
+    <label for="date">Date</label>
+    <input type="date" id="date" />
+  </div>
+  <div>
+    <label for="food">Food-Item:</label>
+    <div class="custom-select">
+      <select name="food" id="food">
+        <option value="Pinky">Pinky</option>
+        <option value="Small Fuzzy">Small Fuzzy</option>
+        <option value="Regular Fuzzy">Regular Fuzzy</option>
+        <option value="Hopper">Hopper</option>
+        <option value="Weaned">Weaned</option>
+        <option value="Adult">Adult</option>
+        <option value="Jumbo">Jumbo</option>
+      </select>
+      <!-- <span class="custom-arrow"></span> -->
+    </div>
+  </div>
+  <button type="submit">Submit</button>
+</form>
+
+<form *ngIf="record === 'shed'">
+  <label for="date">Date</label>
+  <input type="date" id="date" />
+  <label for="observation">Observation:</label>
+  <div class="custom-select">
+    <select name="observation" id="observation">
+      <option value="Noticed">Noticed</option>
+      <option value="Shed">Shed</option>
+    </select>
+  </div>
+  <button type="submit">Submit</button>
+</form>
+
+<form *ngIf="record === 'weight'">
+  <div>
+    <label for="date">Date:</label>
+    <input type="date" name="date" id="date" />
+  </div>
+  <div>
+    <label for="weight">Weight(in grams):</label>
+    <input type="number" name="weight" id="weight" />
+  </div>
+  <button type="submit">Submit</button>
+</form>
+
+<form *ngIf="record === 'note'">
+  <div>
+    <label for="date">Date:</label>
+    <input type="date" name="date" id="date" />
+  </div>
+  <div>
+    <label for="notes">Note:</label>
+    <textarea name="note" id="note"></textarea>
+  </div>
+  <button type="submit">Submit</button>
+</form>

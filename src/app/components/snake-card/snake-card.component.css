@@ -10,7 +10,7 @@
 
 .snake-card:hover {
   box-shadow: 0 2px 5px 0 hsla(36, 95%, 59%, 0.2);
-  background-color: grey;
+  background-color: hsl(0, 0%, 95%);
 }
 
 .snake-card > img {
