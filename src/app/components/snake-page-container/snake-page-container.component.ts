@@ -10,6 +10,7 @@ import { ShedsService } from 'src/assets/ultilities/services/sheds.service';
 import { Shed } from 'src/assets/ultilities/models/shed.model';
 import { WeightsService } from 'src/assets/ultilities/services/weights.service';
 import { Weight } from 'src/assets/ultilities/models/weight.model';
+import { AuthService } from '@auth0/auth0-angular';
 
 @Component({
   selector: 'app-snake-page-container',
@@ -28,6 +29,7 @@ export class SnakePageContainerComponent implements OnInit {
   lastMeal?: string;
   nextMeal?: string;
   mealSize: string = '';
+  profileJson: string = '';
 
   constructor(
     private route: ActivatedRoute,
@@ -35,7 +37,8 @@ export class SnakePageContainerComponent implements OnInit {
     private feedingService: FeedingService,
     private noteService: NotesService,
     private shedService: ShedsService,
-    private weightService: WeightsService
+    private weightService: WeightsService,
+    private auth: AuthService
   ) {}
 
   id = Number(this.route.snapshot.paramMap.get('id'));
@@ -49,6 +52,13 @@ export class SnakePageContainerComponent implements OnInit {
     this.getLastWeight();
     this.getLastMeal();
     this.getMealSize();
+    this.grabUserData();
+  }
+
+  grabUserData() {
+    this.auth.user$.subscribe((profile) => {
+      this.profileJson = JSON.stringify(profile, null, 2);
+    });
   }
 
   getSnake() {

@@ -21,6 +21,7 @@ const routes: Routes = [
   {
     path: 'snakes/:id',
     component: SnakePageContainerComponent,
+    canActivate: [AuthGuard],
   },
   {
     path: '**',

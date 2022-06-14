@@ -19,15 +19,17 @@ const httpOptions = {
   providedIn: 'root',
 })
 export class SnakeService {
+  user?: string = '';
+
   constructor(private http: HttpClient, public auth: AuthService) {}
 
   fetchSnakes(): Observable<Snake[]> {
-    const user = this.auth.user$.subscribe((profile) => profile!.email);
+    this.auth.user$.subscribe((profile) => (this.user = profile!.email));
     return this.http
       .get<SnakeResponse>('https://colubrid-tracker.herokuapp.com/api/snakes')
       .pipe(
         map((response) =>
-          response.snakes.filter((snake) => snake.owner === 'psteide@ford.com')
+          response.snakes.filter((snake) => snake.owner === this.user)
         )
       );
   }

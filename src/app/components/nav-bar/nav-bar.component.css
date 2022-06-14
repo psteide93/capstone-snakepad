@@ -12,11 +12,10 @@ a:hover {
 nav {
   width: 300px;
   position: relative;
-  left: -32px;
 }
 
-ul {
+/* ul {
   width: 100%;
   display: flex;
   justify-content: space-between;
-}
+} */

@@ -27,7 +27,5 @@ export class SnakePageComponent implements OnInit {
   @Input() nextMeal?: string;
   @Input() mealSize: string = '';
 
-  constructor() {}
-
   ngOnInit(): void {}
 }
