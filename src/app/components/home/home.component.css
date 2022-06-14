@@ -1,9 +1,10 @@
+h2,
 p {
   font-size: 64px;
   font-weight: bold;
-  color: var(--dull-orange);
+  color: var(--dark-orange);
 }
 
-p + p {
+p {
   margin-bottom: 36px;
 }
