@@ -25,7 +25,7 @@ export class WeightsService {
 
   getWeights(id: number): Observable<Weight[]> {
     return this.http
-      .get<Response>('http://localhost:8081/api/weights')
+      .get<Response>('https://colubrid-tracker.herokuapp.com/api/weights')
       .pipe(
         map((response) =>
           response.weights.filter((weight) => weight.snakeLink == id)
@@ -41,7 +41,7 @@ export class WeightsService {
 
   addWeight(weight: Weight): Observable<SingleResponse> {
     return this.http.post<SingleResponse>(
-      'http://localhost:8081/api/weights',
+      'https://colubrid-tracker.herokuapp.com/api/weights',
       weight,
       httpOptions
     );

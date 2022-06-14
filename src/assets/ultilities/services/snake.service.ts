@@ -24,7 +24,7 @@ export class SnakeService {
   fetchSnakes(): Observable<Snake[]> {
     const user = this.auth.user$.subscribe((profile) => profile!.email);
     return this.http
-      .get<SnakeResponse>('http://localhost:8081/api/snakes')
+      .get<SnakeResponse>('https://colubrid-tracker.herokuapp.com/api/snakes')
       .pipe(
         map((response) =>
           response.snakes.filter((snake) => snake.owner === 'psteide@ford.com')
@@ -34,7 +34,7 @@ export class SnakeService {
 
   addSnake(snake: Snake): Observable<response> {
     return this.http.post<response>(
-      'http://localhost:8081/api/snakes',
+      'https://colubrid-tracker.herokuapp.com/api/snakes',
       snake,
       httpOptions
     );

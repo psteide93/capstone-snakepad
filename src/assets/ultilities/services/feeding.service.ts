@@ -27,7 +27,7 @@ export class FeedingService {
 
   getFeedings(id: number): Observable<Feeding[]> {
     return this.http
-      .get<Response>('http://localhost:8081/api/feedings')
+      .get<Response>('https://colubrid-tracker.herokuapp.com/api/feedings')
       .pipe(
         map((response) =>
           response.feedings.filter((feeding) => feeding.snakeLink == id)
@@ -43,7 +43,7 @@ export class FeedingService {
 
   addFeeding(feeding: Feeding): Observable<SingleResponse> {
     return this.http.post<SingleResponse>(
-      'http://localhost:8081/api/feedings',
+      'https://colubrid-tracker.herokuapp.com/api/feedings',
       feeding,
       httpOptions
     );

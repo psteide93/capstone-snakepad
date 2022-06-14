@@ -25,7 +25,7 @@ export class ShedsService {
 
   getSheds(id: number): Observable<Shed[]> {
     return this.http
-      .get<Response>('http://localhost:8081/api/sheds')
+      .get<Response>('https://colubrid-tracker.herokuapp.com/api/sheds')
       .pipe(
         map((response) => response.sheds.filter((shed) => shed.snakeLink == id))
       );
@@ -33,7 +33,7 @@ export class ShedsService {
 
   addShed(shed: Shed): Observable<SingleResponse> {
     return this.http.post<SingleResponse>(
-      'http://localhost:8081/api/sheds',
+      'https://colubrid-tracker.herokuapp.com/api/sheds',
       shed,
       httpOptions
     );

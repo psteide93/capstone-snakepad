@@ -26,7 +26,7 @@ export class NotesService {
 
   getNotes(id: number): Observable<Note[]> {
     return this.http
-      .get<Response>('http://localhost:8081/api/notes')
+      .get<Response>('https://colubrid-tracker.herokuapp.com/api/notes')
       .pipe(
         map((response) => response.notes.filter((note) => note.snakeLink == id))
       );
@@ -38,7 +38,7 @@ export class NotesService {
 
   addNote(note: Note): Observable<SingleResponse> {
     return this.http.post<SingleResponse>(
-      'http://localhost:8081/api/notes',
+      'https://colubrid-tracker.herokuapp.com/api/notes',
       note,
       httpOptions
     );

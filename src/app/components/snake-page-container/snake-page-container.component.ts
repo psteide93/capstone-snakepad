@@ -141,6 +141,7 @@ export class SnakePageContainerComponent implements OnInit {
     this.weightService.addWeight(weight).subscribe((response) => {
       this.weights = [...this.weights, response.weight];
     });
+    this.lastWeight = weight;
     this.mealSize = this.weightService.getMealSizeByWeight(weight.weight);
     this.nextMeal = this.weightService.getMealFequencyByWeight(weight.weight);
   }
