@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { AuthModule } from '@auth0/auth0-angular';
 
@@ -24,6 +24,11 @@ import { RecordSelectComponent } from './components/record-select/record-select.
 import { SnakePageContainerComponent } from './components/snake-page-container/snake-page-container.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 import { SpinnerComponent } from './components/spinner/spinner.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { MatButtonModule } from '@angular/material/button';
+import { NetworkInterceptor } from 'src/assets/ultilities/interceptors/network.interceptor';
 
 @NgModule({
   declarations: [
@@ -56,8 +61,14 @@ import { SpinnerComponent } from './components/spinner/spinner.component';
       domain: 'dev-dembkhhc.us.auth0.com',
       clientId: 'CTgCUqDwPTx9kd9aYP0ug57Wc9eIwIUj',
     }),
+    BrowserAnimationsModule,
+    MatToolbarModule,
+    MatProgressSpinnerModule,
+    MatButtonModule,
   ],
-  providers: [],
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: NetworkInterceptor, multi: true },
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
