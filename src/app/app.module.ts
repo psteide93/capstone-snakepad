@@ -29,6 +29,9 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatButtonModule } from '@angular/material/button';
 import { NetworkInterceptor } from 'src/assets/ultilities/interceptors/network.interceptor';
+import { WeatherComponent } from './components/weather/weather.component';
+import { WeatherContainerComponent } from './components/weather-container/weather-container.component';
+import { WeatherButtonComponent } from './components/weather-button/weather-button.component';
 
 @NgModule({
   declarations: [
@@ -51,6 +54,9 @@ import { NetworkInterceptor } from 'src/assets/ultilities/interceptors/network.i
     SnakePageContainerComponent,
     PageNotFoundComponent,
     SpinnerComponent,
+    WeatherComponent,
+    WeatherContainerComponent,
+    WeatherButtonComponent,
   ],
   imports: [
     BrowserModule,

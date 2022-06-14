@@ -1,0 +1,8 @@
+<form *ngIf="showBarometricForm" (ngSubmit)="storeCity(city)">
+  <label for="city">What is your city?</label>
+  <input type="text" id="city" name="city" [(ngModel)]="city" />
+  <button type="submit">Submit</button>
+</form>
+<p *ngIf="showBarometricForm && pressure">
+  The barometric pressure for your area is currently {{ pressure }} atm
+</p>

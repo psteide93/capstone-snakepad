@@ -59,6 +59,7 @@ select {
 
 button {
   margin-top: 16px;
+  margin-bottom: 32px;
   padding: 8px;
   background-color: var(--grey);
   border: none;

@@ -1,0 +1,14 @@
+button {
+  font-weight: 600;
+  background-color: var(--grey);
+  font-size: 16px;
+  padding: 16px;
+  color: black;
+  border: none;
+  border-radius: 8px;
+  margin-bottom: 32px;
+}
+
+button:hover {
+  background-color: var(--dull-teal);
+}

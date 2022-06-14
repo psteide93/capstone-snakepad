@@ -7,6 +7,7 @@ import { Observable, Subject } from 'rxjs';
 export class UiService {
   private showAddSnake: boolean = false;
   private showAddRecord: boolean = false;
+  private showBarometricForm: boolean = false;
   private subject = new Subject<any>();
 
   constructor() {}
@@ -19,6 +20,11 @@ export class UiService {
   toggleAddRecord(): void {
     this.showAddRecord = !this.showAddRecord;
     this.subject.next(this.showAddRecord);
+  }
+
+  toggleBarometericPressure(): void {
+    this.showBarometricForm = !this.showBarometricForm;
+    this.subject.next(this.showBarometricForm);
   }
 
   onToggle(): Observable<any> {

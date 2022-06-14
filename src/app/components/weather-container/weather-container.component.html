@@ -1,0 +1,7 @@
+<div>
+  <app-weather-button
+    (weatherButtonClick)="toggleBarometricForm()"
+    text="{{ showBarometricForm ? 'Close' : 'Check Barometric Pressure' }}"
+  ></app-weather-button>
+  <app-weather [showBarometricForm]="showBarometricForm"></app-weather>
+</div>
