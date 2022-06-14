@@ -75,4 +75,7 @@ button:hover {
 textarea {
   height: 150px;
   width: 300px;
+  font-size: 18px;
+  font-family: "Roboto", sans-serif;
+  padding: 25px;
 }

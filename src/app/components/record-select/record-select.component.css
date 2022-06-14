@@ -4,6 +4,7 @@ form {
 
 legend {
   font-weight: bold;
+  margin-bottom: 8px;
 }
 
 .radio-container {
@@ -18,7 +19,7 @@ legend {
 }
 
 .radio-label {
-  padding: 8px 14px;
+  padding: 12px 16px;
   font-size: 14px;
   color: white;
   background-color: var(--dark-teal);
