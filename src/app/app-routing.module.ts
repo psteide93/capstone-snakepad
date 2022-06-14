@@ -5,6 +5,7 @@ import { AuthGuard } from '@auth0/auth0-angular';
 import { SnakeListingComponent } from './components/snake-listing/snake-listing.component';
 import { SnakePageComponent } from './components/snake-page/snake-page.component';
 import { SnakePageContainerComponent } from './components/snake-page-container/snake-page-container.component';
+import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 
 const routes: Routes = [
   {
@@ -20,6 +21,10 @@ const routes: Routes = [
   {
     path: 'snakes/:id',
     component: SnakePageContainerComponent,
+  },
+  {
+    path: '**',
+    component: PageNotFoundComponent,
   },
 ];
 
