@@ -8,12 +8,12 @@ div {
 h2 {
   font-size: 64px;
   font-weight: bold;
-  color: var(--dark-orange);
+  color: var(--dull-teal);
 }
 
 p {
   font-size: 32px;
-  color: var(--dark-orange);
+  color: var(--dull-teal);
   margin-top: 16px;
 }
 
