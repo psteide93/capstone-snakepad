@@ -1,18 +1,22 @@
 .snake-card {
+  position: relative;
   background-color: white;
   padding: 1rem;
   box-shadow: 0 2px 5px 0 hsla(181, 63%, 39%, 0.2);
   border-radius: 0.25rem;
   width: 450px;
-  height: 250px;
+  height: 300px;
+}
+
+.card-info {
   display: flex;
   justify-content: space-between;
 }
 
-.snake-card:hover {
+/* .snake-card:hover {
   box-shadow: 0 2px 5px 0 hsla(36, 95%, 59%, 0.2);
   background-color: hsl(0, 0%, 95%);
-}
+} */
 
 .snake-card > img {
   width: 150px;
@@ -32,4 +36,35 @@
 .card-text p {
   margin-bottom: 5px;
   line-height: 1.2em;
+}
+
+button {
+  position: absolute;
+  right: 0;
+  top: 0;
+  background-color: white;
+  border: 2px solid var(--dark-teal);
+  font-weight: bold;
+  color: var(--dark-teal);
+}
+
+button:hover {
+  background-color: var(--dark-teal);
+  color: white;
+}
+
+a {
+  text-decoration: none;
+  display: inline-block;
+  margin-top: 12px;
+  padding: 4px;
+  background-color: white;
+  border: 2px solid var(--dark-teal);
+  font-weight: bold;
+  color: var(--dark-teal);
+}
+
+a:hover {
+  background-color: var(--dark-teal);
+  color: white;
 }

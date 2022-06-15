@@ -1,14 +1,16 @@
-<button (click)="onClick()">delete</button>
 <div class="snake-card">
-  <app-snake-picture [imgUrl]="snake.imgUrl"></app-snake-picture>
-  <div class="card-text">
-    <p><span>Name:</span> {{ snake.name }}</p>
-    <p><span>ID:</span> {{ snake.breederId }}</p>
-    <p><span>Gender:</span> {{ snake.gender }}</p>
-    <p *ngIf="lastMeal?.date"><span>Last Meal:</span> {{ lastMeal?.date }}</p>
-    <p *ngIf="nextMeal"><span>Meal Frequency:</span> {{ nextMeal }}</p>
-    <p *ngIf="mealSize"><span>Meal Size:</span> {{ mealSize }}</p>
-    <p *ngIf="lastNote"><span>Last Note:</span> {{ lastNote }}</p>
-    <a routerLink="/snakes/{{ snake.id }}">More</a>
+  <button (click)="onClick()">Delete</button>
+  <div class="card-info">
+    <app-snake-picture [imgUrl]="snake.imgUrl"></app-snake-picture>
+    <div class="card-text">
+      <p><span>Name:</span> {{ snake.name }}</p>
+      <p><span>ID:</span> {{ snake.breederId }}</p>
+      <p><span>Gender:</span> {{ snake.gender }}</p>
+      <p *ngIf="lastMeal?.date"><span>Last Meal:</span> {{ lastMeal?.date }}</p>
+      <p *ngIf="nextMeal"><span>Meal Frequency:</span> {{ nextMeal }}</p>
+      <p *ngIf="mealSize"><span>Meal Size:</span> {{ mealSize }}</p>
+      <p *ngIf="lastNote"><span>Last Note:</span> {{ lastNote }}</p>
+      <a routerLink="/snakes/{{ snake.id }}">More Info</a>
+    </div>
   </div>
 </div>
