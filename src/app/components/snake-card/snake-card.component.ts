@@ -1,10 +1,9 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Snake } from 'src/assets/ultilities/models/snake.model';
 import { FeedingService } from 'src/assets/ultilities/services/feeding.service';
 import { Feeding } from 'src/assets/ultilities/models/feeding.model';
 import { WeightsService } from 'src/assets/ultilities/services/weights.service';
 import { NotesService } from 'src/assets/ultilities/services/notes.service';
-import { Note } from 'src/assets/ultilities/models/note.model';
 
 @Component({
   selector: 'app-snake-card',
@@ -12,6 +11,7 @@ import { Note } from 'src/assets/ultilities/models/note.model';
   styleUrls: ['./snake-card.component.css'],
 })
 export class SnakeCardComponent implements OnInit {
+  @Output() buttonClick = new EventEmitter();
   lastMeal?: Feeding;
   mealSize?: string;
   nextMeal?: string;
@@ -73,5 +73,9 @@ export class SnakeCardComponent implements OnInit {
         this.lastNote = response.note;
       }
     });
+  }
+
+  onClick() {
+    this.buttonClick.emit(this.snake);
   }
 }

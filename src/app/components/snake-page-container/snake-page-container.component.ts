@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Location } from '@angular/common';
 import { Snake } from 'src/assets/ultilities/models/snake.model';
 import { ActivatedRoute } from '@angular/router';
 import { SnakeService } from 'src/assets/ultilities/services/snake.service';
@@ -38,6 +39,7 @@ export class SnakePageContainerComponent implements OnInit {
     private noteService: NotesService,
     private shedService: ShedsService,
     private weightService: WeightsService,
+    private location: Location,
     private auth: AuthService
   ) {}
 
@@ -67,6 +69,10 @@ export class SnakePageContainerComponent implements OnInit {
         this.snake = snake;
       }
     });
+  }
+
+  updateSnake(snake: Snake) {
+    this.snake = snake;
   }
 
   getFeedings() {

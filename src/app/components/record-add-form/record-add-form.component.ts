@@ -7,6 +7,8 @@ import { Feeding } from 'src/assets/ultilities/models/feeding.model';
 import { Shed } from 'src/assets/ultilities/models/shed.model';
 import { Weight } from 'src/assets/ultilities/models/weight.model';
 import { Note } from 'src/assets/ultilities/models/note.model';
+import { SnakeService } from 'src/assets/ultilities/services/snake.service';
+import { Snake } from 'src/assets/ultilities/models/snake.model';
 
 @Component({
   selector: 'app-record-add-form',
@@ -19,6 +21,7 @@ export class RecordAddFormComponent implements OnInit {
   @Output() onAddShed: EventEmitter<Shed> = new EventEmitter();
   @Output() onAddWeight: EventEmitter<Weight> = new EventEmitter();
   @Output() onAddNote: EventEmitter<Note> = new EventEmitter();
+  @Output() onUpdate: EventEmitter<Snake> = new EventEmitter();
 
   showAddRecord = false;
   subscription: Subscription;
@@ -31,14 +34,31 @@ export class RecordAddFormComponent implements OnInit {
   weight: number = 0;
   note: string = '';
   snakeLink = Number(this.route.snapshot.paramMap.get('id'));
+  snake!: Snake;
 
-  constructor(private uiService: UiService, private route: ActivatedRoute) {
+  constructor(
+    private uiService: UiService,
+    private route: ActivatedRoute,
+    private snakeService: SnakeService
+  ) {
     this.subscription = this.uiService
       .onToggle()
       .subscribe((value) => (this.showAddRecord = value));
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.snakeService.getSnakeById(this.snakeLink).subscribe((snake) => {
+      if (snake) {
+        this.snake = snake;
+      }
+    });
+  }
+
+  onUpdateSnake() {
+    const updatedsnake: Snake = this.snake;
+    this.snakeService.updateSnake(updatedsnake, this.snakeLink).subscribe();
+    this.onUpdate.emit(updatedsnake);
+  }
 
   onSubmitFeeding() {
     const newFeeding: Feeding = {

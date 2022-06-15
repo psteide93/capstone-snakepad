@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Snake } from 'src/assets/ultilities/models/snake.model';
 import { ActivatedRoute } from '@angular/router';
 import { SnakeService } from 'src/assets/ultilities/services/snake.service';

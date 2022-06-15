@@ -6,6 +6,7 @@ import { FeedingService } from 'src/assets/ultilities/services/feeding.service';
 import { Shed } from 'src/assets/ultilities/models/shed.model';
 import { Weight } from 'src/assets/ultilities/models/weight.model';
 import { Note } from 'src/assets/ultilities/models/note.model';
+import { Snake } from 'src/assets/ultilities/models/snake.model';
 
 @Component({
   selector: 'app-record',
@@ -17,15 +18,13 @@ export class RecordComponent implements OnInit {
   @Output() onAddShed: EventEmitter<Shed> = new EventEmitter();
   @Output() onAddWeight: EventEmitter<Weight> = new EventEmitter();
   @Output() onAddNote: EventEmitter<Note> = new EventEmitter();
+  @Output() onUpdate: EventEmitter<Snake> = new EventEmitter();
 
   showAddRecord: boolean = false;
   subscription!: Subscription;
   record = '';
 
-  constructor(
-    private uiService: UiService,
-    private feedingService: FeedingService
-  ) {
+  constructor(private uiService: UiService) {
     this.subscription = this.uiService
       .onToggle()
       .subscribe((value) => (this.showAddRecord = value));
@@ -55,5 +54,9 @@ export class RecordComponent implements OnInit {
 
   addNote(note: Note) {
     this.onAddNote.emit(note);
+  }
+
+  updateSnake(snake: Snake) {
+    this.onUpdate.emit(snake);
   }
 }

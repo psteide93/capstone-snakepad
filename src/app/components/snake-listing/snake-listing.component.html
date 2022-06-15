@@ -2,13 +2,14 @@
   <div>
     <ul>
       <li *ngFor="let snake of snakes">
-        <a routerLink="/snakes/{{ snake.id }}">
+        <div>
           <app-snake-card
             *ngIf="snake"
             [snake]="snake"
             [id]="snake.id"
+            (buttonClick)="deleteSnake($event)"
           ></app-snake-card>
-        </a>
+        </div>
       </li>
     </ul>
   </div>

@@ -5,7 +5,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { SnakeResponse } from '../models/snakeResponse.model';
 import { AuthService } from '@auth0/auth0-angular';
 
-type response = {
+type Response = {
   snake: Snake;
 };
 
@@ -19,6 +19,7 @@ const httpOptions = {
   providedIn: 'root',
 })
 export class SnakeService {
+  snakes: Snake[] = [];
   user?: string = '';
 
   constructor(private http: HttpClient, public auth: AuthService) {}
@@ -34,8 +35,14 @@ export class SnakeService {
       );
   }
 
-  addSnake(snake: Snake): Observable<response> {
-    return this.http.post<response>(
+  refreshSnakeList() {
+    this.fetchSnakes().subscribe((snakes) => {
+      this.snakes = [...snakes];
+    });
+  }
+
+  addSnake(snake: Snake): Observable<Response> {
+    return this.http.post<Response>(
       'https://colubrid-tracker.herokuapp.com/api/snakes',
       snake,
       httpOptions
@@ -45,6 +52,22 @@ export class SnakeService {
   getSnakeById(id: number): Observable<Snake | undefined> {
     return this.fetchSnakes().pipe(
       map((snake) => snake.find((snake) => snake.id === id))
+    );
+  }
+
+  updateSnake(snake: Snake, id: number): Observable<Snake> {
+    return this.http
+      .put<Snake>(
+        `https://colubrid-tracker.herokuapp.com/api/snakes/${id}`,
+        snake,
+        httpOptions
+      )
+      .pipe(map((response: Snake) => response));
+  }
+
+  deleteSnake(snake: Snake) {
+    return this.http.delete<Snake>(
+      `https://colubrid-tracker.herokuapp.com/api/snakes/${snake.id}`
     );
   }
 }

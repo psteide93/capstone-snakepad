@@ -10,10 +10,4 @@ export type Snake = {
   breederId: string;
   imgUrl: string;
   gender: 'Male' | 'Female' | 'Unknown';
-  lastMeal?: string;
-  lastNote?: string;
-  feedings?: Feeding[];
-  notes?: Note[];
-  sheds?: Shed[];
-  weights?: Weight[];
 };

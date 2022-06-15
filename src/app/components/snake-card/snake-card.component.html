@@ -1,3 +1,4 @@
+<button (click)="onClick()">delete</button>
 <div class="snake-card">
   <app-snake-picture [imgUrl]="snake.imgUrl"></app-snake-picture>
   <div class="card-text">
@@ -8,5 +9,6 @@
     <p *ngIf="nextMeal"><span>Meal Frequency:</span> {{ nextMeal }}</p>
     <p *ngIf="mealSize"><span>Meal Size:</span> {{ mealSize }}</p>
     <p *ngIf="lastNote"><span>Last Note:</span> {{ lastNote }}</p>
+    <a routerLink="/snakes/{{ snake.id }}">More</a>
   </div>
 </div>

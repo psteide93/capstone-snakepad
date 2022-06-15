@@ -29,7 +29,7 @@ export class SnakeListingComponent implements OnInit {
   ngOnInit() {
     this.snakeService
       .fetchSnakes()
-      .subscribe((response) => (this.snakes = [...response]));
+      .subscribe((snakes) => (this.snakes = [...snakes]));
     this.grabUserData();
   }
 
@@ -49,5 +49,13 @@ export class SnakeListingComponent implements OnInit {
 
   toggleAddSnake() {
     this.uiService.toggleAddSnake();
+  }
+
+  deleteSnake(snake: Snake) {
+    this.snakeService
+      .deleteSnake(snake)
+      .subscribe(
+        () => (this.snakes = this.snakes.filter((s) => s.id !== snake.id))
+      );
   }
 }

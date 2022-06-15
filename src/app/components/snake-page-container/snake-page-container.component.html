@@ -3,6 +3,7 @@
   (onAddShed)="addShed($event)"
   (onAddWeight)="addWeight($event)"
   (onAddNote)="addNote($event)"
+  (onUpdate)="updateSnake($event)"
 ></app-record>
 <app-snake-page
   [snake]="snake"
@@ -15,4 +16,5 @@
   [nextMeal]="nextMeal"
   [mealSize]="mealSize"
 ></app-snake-page>
+
 <app-spinner></app-spinner>

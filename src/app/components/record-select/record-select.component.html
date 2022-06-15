@@ -1,6 +1,16 @@
 <form *ngIf="showAddRecord" (ngSubmit)="onSubmit()">
   <legend>Which Record:</legend>
+
   <div class="radio-container">
+    <input
+      class="radio-input"
+      type="radio"
+      id="update"
+      name="record"
+      value="update"
+      [(ngModel)]="record"
+    />
+    <label class="radio-label" for="update">Update Snake</label>
     <input
       class="radio-input"
       type="radio"
