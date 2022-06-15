@@ -23,49 +23,17 @@ input {
 select {
   font-size: 18px;
   padding: 1em 1.5em;
-  border: 0;
-  background-color: var(--brite-teal);
-}
-
-.custom-select {
-  position: relative;
-}
-
-.custom-arrow {
-  position: absolute;
-  top: 0;
-  left: 165px;
-  display: block;
-  background: var(--brite-orange);
-  height: 100%;
-  width: 2rem;
-  pointer-events: none;
-}
-
-.custom-select .custom-arrow::after {
-  --size: 6px;
-  content: " ";
-  position: absolute;
-  width: 0;
-  height: 0;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
-
-.custom-arrow::after {
-  border-left: var(--size) solid transparent;
-  border-right: var(--size) solid transparent;
-  border-top: var(--size) solid var(--brite-teal);
-  top: 35%;
 }
 
 button {
   width: 100px;
   height: 50px;
   margin: 16px 0px 32px 0px;
+  padding: 2px;
   border: none;
+  border-radius: 4px;
   font-weight: bold;
-  background-color: gray;
+  background-color: var(--grey);
 }
 
 button:hover {

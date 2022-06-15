@@ -37,7 +37,7 @@ legend {
 
 button {
   border: none;
-  background-color: gray;
+  background-color: var(--grey);
   font-weight: bold;
 }
 

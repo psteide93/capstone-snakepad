@@ -3,7 +3,7 @@
   background-color: white;
   padding: 1rem;
   box-shadow: 0 2px 5px 0 hsla(181, 63%, 39%, 0.2);
-  border-radius: 0.25rem;
+  border-radius: 4px;
   width: 450px;
   height: 300px;
 }
@@ -46,6 +46,7 @@ button {
   border: 2px solid var(--dark-teal);
   font-weight: bold;
   color: var(--dark-teal);
+  border-radius: 0 4px 0 0;
 }
 
 button:hover {
@@ -62,6 +63,7 @@ a {
   border: 2px solid var(--dark-teal);
   font-weight: bold;
   color: var(--dark-teal);
+  border-radius: 4px;
 }
 
 a:hover {
