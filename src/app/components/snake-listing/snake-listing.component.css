@@ -5,6 +5,12 @@ ul {
   margin-bottom: 32px;
 }
 
+@media (max-width: 1000px) {
+  ul {
+    grid-template-columns: 1fr;
+  }
+}
+
 .container {
   display: flex;
   flex-direction: column;
