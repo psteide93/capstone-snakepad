@@ -36,8 +36,8 @@ https://colubrid-tracker.herokuapp.com/
 
 API endpoints:
 
-api/snakes
-api/notes
-api/weights
-api/sheds
-api/feedings
+api/snakes\
+api/notes\
+api/weights\
+api/sheds\
+api/feedings\
