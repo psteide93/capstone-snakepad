@@ -28,3 +28,7 @@ h1 {
   padding: 16px;
   color: white;
 }
+
+app-nav-bar {
+  margin-left: 16px;
+}
