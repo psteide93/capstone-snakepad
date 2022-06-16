@@ -1,27 +1,43 @@
 # SnakePad
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.3.7.
+Hello, welcome to my SnakePad project. As someone who has a growing collection of corn snakes, I need a way that was more user friendly and exicitng than a excel spreadsheet. So when it came time to build an app for my 16 week learn to code program I had this idea almost immediately.
 
-## Development server
+## Deployed Link
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+https://psteide-snakepad.netlify.app
 
-## Code scaffolding
+## Project Details
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+There is a log-in necessary, using Auth0, (necessary so each user can have access to thier individual list of snakes). But once you're logged in, you're greeted to your very own list of snakes.
 
-## Build
+![webpage](https://i2.paste.pics/97dabe21746c0c456f79fb9f7d6b02a4.png)
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+On this page you can add snakes to your collection, delete them, and just generally have access to high level information on your snakes.
 
-## Running unit tests
+If you click more info you will be sent to the detail page of that particular snake
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+![webpage](https://i2.paste.pics/4e4ce71de419fc1f07e24655cf82b009.png)
 
-## Running end-to-end tests
+On this page you can update the snake's info and add new records using the Add record button
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+## Technologies Used
 
-## Further help
+The front end for this project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.3.7.
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+The back end for this project was done using Spring-boot, deployed in heroku.
+
+### Back End Repo Link
+
+https://github.com/psteide93/capstone-colubrid-tracker-api
+
+### Back End Deployed Link
+
+https://colubrid-tracker.herokuapp.com/
+
+API endpoints:
+
+api/snakes
+api/notes
+api/weights
+api/sheds
+api/feedings
