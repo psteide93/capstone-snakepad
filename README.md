@@ -40,4 +40,4 @@ api/snakes\
 api/notes\
 api/weights\
 api/sheds\
-api/feedings\
+api/feedings
