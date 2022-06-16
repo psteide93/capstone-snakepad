@@ -9,12 +9,13 @@
       id="feedingDate"
       [(ngModel)]="feedingDate"
       name="feedingDate"
+      required
     />
   </div>
   <div>
     <label for="food">Food-Item:</label>
     <div class="custom-select">
-      <select name="food" id="food" [(ngModel)]="foodItem">
+      <select name="food" id="food" [(ngModel)]="foodItem" required>
         <option value="Pinky">Pinky</option>
         <option value="Small Fuzzy">Small Fuzzy</option>
         <option value="Regular Fuzzy">Regular Fuzzy</option>
@@ -23,7 +24,6 @@
         <option value="Adult">Adult</option>
         <option value="Jumbo">Jumbo</option>
       </select>
-      <!-- <span class="custom-arrow"></span> -->
     </div>
   </div>
   <button type="submit">Submit</button>
@@ -31,10 +31,21 @@
 
 <form *ngIf="showAddRecord && record === 'shed'" (ngSubmit)="onSubmitShed()">
   <label for="shedDate">Date</label>
-  <input type="date" id="shedDate" [(ngModel)]="shedDate" name="shedDate" />
+  <input
+    type="date"
+    id="shedDate"
+    [(ngModel)]="shedDate"
+    name="shedDate"
+    required
+  />
   <label for="observation">Observation:</label>
   <div class="custom-select">
-    <select name="observation" id="observation" [(ngModel)]="observation">
+    <select
+      name="observation"
+      id="observation"
+      [(ngModel)]="observation"
+      required
+    >
       <option value="Noticed">Noticed</option>
       <option value="Shed">Shed</option>
     </select>
@@ -53,11 +64,18 @@
       name="weightDate"
       id="weightDate"
       [(ngModel)]="weightDate"
+      required
     />
   </div>
   <div>
     <label for="weight">Weight(in grams):</label>
-    <input type="number" name="weight" id="weight" [(ngModel)]="weight" />
+    <input
+      type="number"
+      name="weight"
+      id="weight"
+      [(ngModel)]="weight"
+      required
+    />
   </div>
   <button type="submit">Submit</button>
 </form>
@@ -65,11 +83,23 @@
 <form *ngIf="showAddRecord && record === 'note'" (ngSubmit)="onSubmitNote()">
   <div>
     <label for="noteDate">Date:</label>
-    <input type="date" name="noteDate" id="noteDate" [(ngModel)]="noteDate" />
+    <input
+      type="date"
+      name="noteDate"
+      id="noteDate"
+      [(ngModel)]="noteDate"
+      required
+    />
   </div>
   <div>
     <label for="notes">Note:</label>
-    <textarea name="note" id="note" [(ngModel)]="note" name="note"></textarea>
+    <textarea
+      name="note"
+      id="note"
+      [(ngModel)]="note"
+      name="note"
+      required
+    ></textarea>
   </div>
   <button type="submit">Submit</button>
 </form>
