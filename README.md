@@ -14,11 +14,11 @@ There is a log-in necessary, using Auth0, (necessary so each user can have acces
 
 On this page you can add snakes to your collection, delete them, and just generally have access to high level information on your snakes.
 
-If you click more info you will be sent to the detail page of that particular snake
+If you click more info you will be sent to the detail page of that particular snake:
 
 ![webpage](https://i2.paste.pics/4e4ce71de419fc1f07e24655cf82b009.png)
 
-On this page you can update the snake's info and add new records using the Add record button
+On this page you can update the snake's info and add new records using the Add record button.
 
 ## Technologies Used
 
