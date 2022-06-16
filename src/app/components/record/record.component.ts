@@ -2,7 +2,6 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { UiService } from 'src/assets/ultilities/services/ui.service';
 import { Subscription } from 'rxjs';
 import { Feeding } from 'src/assets/ultilities/models/feeding.model';
-import { FeedingService } from 'src/assets/ultilities/services/feeding.service';
 import { Shed } from 'src/assets/ultilities/models/shed.model';
 import { Weight } from 'src/assets/ultilities/models/weight.model';
 import { Note } from 'src/assets/ultilities/models/note.model';

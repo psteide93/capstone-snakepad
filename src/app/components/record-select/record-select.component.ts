@@ -1,4 +1,4 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { UiService } from 'src/assets/ultilities/services/ui.service';
 
@@ -7,7 +7,7 @@ import { UiService } from 'src/assets/ultilities/services/ui.service';
   templateUrl: './record-select.component.html',
   styleUrls: ['./record-select.component.css'],
 })
-export class RecordSelectComponent implements OnInit {
+export class RecordSelectComponent {
   @Output() onAddRecord: EventEmitter<string> = new EventEmitter();
   showAddRecord = false;
   subscription!: Subscription;
@@ -18,8 +18,6 @@ export class RecordSelectComponent implements OnInit {
       .onToggle()
       .subscribe((value) => (this.showAddRecord = value));
   }
-
-  ngOnInit(): void {}
 
   onSubmit() {
     this.onAddRecord.emit(this.record);

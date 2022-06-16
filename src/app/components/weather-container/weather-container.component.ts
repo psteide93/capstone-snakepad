@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { Subscription } from 'rxjs';
 
 @Component({
@@ -6,13 +6,9 @@ import { Subscription } from 'rxjs';
   templateUrl: './weather-container.component.html',
   styleUrls: ['./weather-container.component.css'],
 })
-export class WeatherContainerComponent implements OnInit {
+export class WeatherContainerComponent {
   showBarometricForm: boolean = false;
   subscription!: Subscription;
-
-  constructor() {}
-
-  ngOnInit(): void {}
 
   toggleBarometricForm() {
     if (this.showBarometricForm) {

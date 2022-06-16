@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { WeatherService } from 'src/assets/ultilities/services/weather.service';
 
 @Component({
@@ -6,14 +6,12 @@ import { WeatherService } from 'src/assets/ultilities/services/weather.service';
   templateUrl: './weather.component.html',
   styleUrls: ['./weather.component.css'],
 })
-export class WeatherComponent implements OnInit {
+export class WeatherComponent {
   @Input() showBarometricForm!: boolean;
   pressure = 0;
   city = '';
 
   constructor(private weatherService: WeatherService) {}
-
-  ngOnInit(): void {}
 
   getPressure(city: string) {
     this.weatherService
